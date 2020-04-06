@@ -38,119 +38,24 @@
 
 
         <!--JS BOOTSTRAP-->
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        
-
-        <!--scripts per summernote editor-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="https://rawgit.com/summernote/summernote/develop/dist/summernote.min.js"></script>
-        
-         <!--Date picker-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
-
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
             
-            <script>
-            //button for mtgcards
-            var MTGCardButton = function(context) {
-                var ui = $.summernote.ui;
-                var button = ui.button({
-                    contents: 'Tag per Carte',
-                    tooltip: 'Inserisci Nome della carta',
-                    click: function() {
-                    context.invoke('editor.insertText', '[mtgcard]card[/mtgcard]');
-                    }
-                });
-
-                return button.render();
-            }
-
-            //button for mtg decklist
-            var DecklistButton = function(context) {
-                var ui = $.summernote.ui;
-                var button = ui.button({
-                    contents: 'Tag per Decklist',
-                    tooltip: 'Inserisci Nome della carta',
-                    click: function() {
-                    context.invoke('editor.insertText', '[decklist]4x Plains : 2x Fabled Passage : 3x Teferi, Time Raveler [/decklist]');
-                    }
-                });
-
-                return button.render();
-            }
-
-            //insert image in textarea and upload in server folder
-            function uploadImage(file, el) {
-                var form_data = new FormData();
-                form_data.append('file', file);
-                $.ajax({
-                    data: form_data,
-                    type: "POST",
-                    url: 'controller/editor-upload.php',
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    success: function(url) {
-                        $(el).summernote('editor.insertImage', '/project' + url);
-                    }
-                });
-            }
-
             
-            //Editor for articles and mtgcards 
-            $(document).ready(function() {
-                $('#article-summernote').summernote({
-                    height: 300,                 // set editor height
-                    focus: true,                  // set focus to editable area after initializing summernote
-                    toolbar: [
-                    ['style', ['insertcard', 'insertdecklist', 'bold', 'italic', 'underline', 'clear']],
-                    ['font', ['fontsize', 'strikethrough', 'color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['insert', ['link', 'picture']],
-                    ['view', ['fullscreen', 'undo', 'redo', 'codeview']]
-                    ],
-                    buttons: {
-                    insertcard: MTGCardButton,
-                    insertdecklist: DecklistButton
-                    },
-                    callbacks: {
-                        onImageUpload : function(files, editor, welEditable) {
-                
-                            for(var i = files.length - 1; i >= 0; i--) {
-                                uploadImage(files[i], this);
-                            }
-                        }
-                    }
-
-                });
-            });
-
-        </script>
-        
-        <!-- validation for forms -->
         <script>
-            var articleForm = document.querySelector('.needs-validation');
-            articleForm.addEventListener('submit', function(event) {
-                if (articleForm.checkValidity() === false) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                articleForm.classList.add('was-validated');
-            });
+            var forms = document.querySelector('.needs-validation');
+            if(forms){
+                forms.addEventListener('submit', function(event) {
+                    if (forms.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    forms.classList.add('was-validated');
+                });
+            }
             
-        </script>
-        
-        <!--PREVIEW BEFORE SUBMIT-->
-        <script type="text/javascript">
-            //for Articles
-           $('#preview-article').click(function() {
-                $('#article-title-preview').text($('#article-title-field').val());
-                $('#article-content-preview').html($('#article-summernote').val());
-            });
-
-
             //for Events 
             $('#preview-event').click(function(){
                 $('#event-title-preview').text($('#event-title').val());
@@ -165,39 +70,23 @@
                 $('#event-description-preview').text($('#event-description').val());
             });
         </script>
-
-
-        <!--Date Picker-->
-        <script type="text/javascript">
-            $('#datepicker').datepicker({
-                weekStart: 1,
-                daysOfWeekHighlighted: "6,0",
-                autoclose: true,
-                todayHighlight: true,
-            });
-            $('#datepicker').datepicker("setDate", new Date());
-        </script>
-
         <!--Back to Top-->
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $(window).scroll(function () {
-                        if ($(this).scrollTop() > 50) {
-                            $('#back-to-top').fadeIn();
+        <script >
+            jQuery(document).ready(function(){
+                jQuery(window).scroll(function () {
+                        if (jQuery(this).scrollTop() > 50) {
+                            jQuery('#back-to-top').fadeIn();
                         } else {
-                            $('#back-to-top').fadeOut();
+                            jQuery('#back-to-top').fadeOut();
                         }
                     });
                     // scroll body to 0px on click
-                    $('#back-to-top').click(function () {
-                        $('#back-to-top').tooltip('hide');
-                        $('body,html').animate({
+                    jQuery('#back-to-top').click(function () {
+                        jQuery('body,html').animate({
                             scrollTop: 0
                         }, 800);
                         return false;
                     });
-                    
-                    $('#back-to-top').tooltip('show');
             });
         </script>
     </body>

@@ -3,7 +3,7 @@
     $pageDesc = "Homepage del giocatore medio di Magic, dove trovare articoli su decktech, (Standard, T2, Pioneer, Arena, Modern, Legacy, EDH, Commander), tornei (Arena Leagues, MTGO, Championship, Magicfest) e interviste ai streamers.";
     $pageType = "website";
     $pageImage = ABSOLUTE_PATH . "resources/logos/igmdm.svg";
-    $pageUrl = "https://www.igmdm.com/" ;
+    $pageUrl = "https://.igmdm.com/" ;
     include 'inc/header.php'; 
 ?>
 
