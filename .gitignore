@@ -1,0 +1,8 @@
+.htaccess
+Route.php
+config/
+*.txt
+images/
+test.php
+db/
+resources/
