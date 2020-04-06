@@ -25,7 +25,7 @@
                             <tbody>
                                 <?php foreach($articlesToBeApproved as $article): ?>
                                     <tr>
-                                        <td><img src="<?php echo ABSOLUTE_PATH; ?>images/articles/<?php echo $article->preimage_arti; ?>" alt="" class="mx-auto" style="width: 80px; height:80px"></td>
+                                        <td><img src="<?php echo ABSOLUTE_PATH; ?>images/articles/<?php echo $article->preimage_arti; ?>" alt="<?php echo $article->name_arti; ?>" class="mx-auto" style="width: 80px; height:80px"></td>
                                         <td><?php echo $article->name_arti; ?></td>
                                         <td><?php echo $article->name_frmt; ?></td>
                                         <td><?php echo $article->date_arti; ?></td>
@@ -59,7 +59,7 @@
                                 <?php foreach($articlesToBeApproved as $article): ?>
                                     <?php if($article->user_arti ==  $_SESSION['id_user']): ?>
                                     <tr>
-                                        <td><img src="<?php echo ABSOLUTE_PATH; ?>images/articles/<?php echo $article->preimage_arti; ?>" alt="" class="mx-auto" style="width: 80px; height:80px"></td>
+                                        <td><img src="<?php echo ABSOLUTE_PATH; ?>images/articles/<?php echo $article->preimage_arti; ?>" alt="<?php echo $article->name_arti; ?>" class="mx-auto" style="width: 80px; height:80px"></td>
                                         <td><?php echo $article->name_arti; ?></td>
                                         <td><?php echo $article->name_frmt; ?></td>
                                         <td><?php echo $article->date_arti; ?></td>

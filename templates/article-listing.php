@@ -16,7 +16,7 @@
                 <?php $description = substr($article->desc_arti, 0, 30); ?>
                 <div class="mb-4 px-1">
                     <div class="card" style="max-height: 400px;">
-                        <img src="<?php echo ABSOLUTE_PATH; ?>images/articles/<?php echo $article->preimage_arti; ?>" alt="" class="rounded-circle mx-auto" style="width: 200px; height:200px">
+                        <img src="<?php echo ABSOLUTE_PATH; ?>images/articles/<?php echo $article->preimage_arti; ?>" alt="<?php echo $article->name_arti; ?>" class="rounded-circle mx-auto" style="width: 200px; height:200px">
                         <h1 class="card-title p-2" style="width: 200px; height: 4em; font-size: 18px"> <?php echo $article->name_arti; ?> </h1>
                         <!--<p class="card-text p-1"> <?php  ?> </p>-->
                         <a href="<?php echo BASE_PATH; ?>/article/<?php echo $article->id_arti; ?>/<?php echo $article->url_arti; ?>" class='btn btn-outline-primary btn-sm' style="align-self: flex-end; margin: 2px;" type="submit"><small>Leggi...</small></a>

@@ -20,7 +20,7 @@
                 <?php $description = substr($hpArticle->desc_arti, 0, 30); ?>
                 <div class="mb-4 px-1">
                     <div class="card" style="max-height: 300px;">
-                        <img src="<?php echo ABSOLUTE_PATH; ?>images/articles/<?php echo $hpArticle->preimage_arti; ?>" alt="" class="rounded-circle mx-auto card-image" style="width: 120px; height:120px">
+                        <img src="<?php echo ABSOLUTE_PATH; ?>images/articles/<?php echo $hpArticle->preimage_arti; ?>" alt="<?php echo $hpArticle->name_arti; ?>" class="rounded-circle mx-auto card-image" style="width: 120px; height:120px">
                         <h1 class="card-title p-2" style="width: 200px; height: 4em; font-size: 18px"> <?php echo $hpArticle->name_arti; ?> </h1>
                         <!--<p class="card-text p-1"> <?php  ?> </p>-->
                         <a href="<?php echo BASE_PATH; ?>/article/<?php echo $hpArticle->id_arti; ?>/<?php echo $hpArticle->url_arti; ?>" class='btn btn-outline-primary btn-sm' style="align-self: flex-end; margin: 2px;" type="submit"><small>Leggi...</small></a>

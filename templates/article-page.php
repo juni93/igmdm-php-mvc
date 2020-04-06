@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div>
-            <img src="<?php echo ABSOLUTE_PATH; ?>images/articles/<?php echo $singleArticle[0]->preimage_arti; ?>" alt="" class="img-fluid">
+            <img src="<?php echo ABSOLUTE_PATH; ?>images/articles/<?php echo $singleArticle[0]->preimage_arti; ?>" alt="<?php echo $singleArticle[0]->name_arti; ?>" class="img-fluid">
             </div>
             <hr>
             <div class="">

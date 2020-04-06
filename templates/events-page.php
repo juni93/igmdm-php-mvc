@@ -13,7 +13,7 @@
         <div class="col-md-7">
             <?php foreach($events as $event): ?>
                 <div class="jumbotron m-0">
-                    <img src="<?php echo ABSOLUTE_PATH; ?>images/<?php echo $event->image_event; ?>" alt="" class="img-fluid">
+                    <img src="<?php echo ABSOLUTE_PATH; ?>images/<?php echo $event->image_event; ?>" alt="<?php echo $event->title_event; ?>" class="img-fluid">
                     <hr class="mt-4">
                     <h1 class="display-4"><?php echo $event->title_event; ?></h1>
                     <p class="lead clearfix">
