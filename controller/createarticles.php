@@ -11,7 +11,6 @@ if(isset($_POST['submit_article'])){
     $data['article_description'] = $_POST['article_description'];
     $data['article_image_name'] = $_FILES['name_imag']['name'];
 
-
     if($articlesCls->createArticle($data)){
         redirect(BASE_PATH  . '/home', 'Articolo è stato salvato', 'success');
     }else{

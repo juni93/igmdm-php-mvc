@@ -134,24 +134,141 @@ class Articles{
         return $row;
     }
 
+/*     public function imageResizeToThumb($imageSrc,$imageWidth,$imageHeight) {
+
+        $newImageWidth =200;
+        $newImageHeight =200;
+    
+        $newImageLayer=imagecreatetruecolor($newImageWidth,$newImageHeight);
+        imagecopyresampled($newImageLayer,$imageSrc,0,0,0,0,$newImageWidth,$newImageHeight,$imageWidth,$imageHeight);
+    
+        return $newImageLayer;
+    }
+
+    public function compressImage($source, $destination, $quality) { 
+        // Get image info 
+        $imgInfo = getimagesize($source);
+        $mime = $imgInfo['mime']; 
+        // Create a new image from file 
+        switch($mime){ 
+            case 'image/jpeg': 
+                $image = imagecreatefromjpeg($source);
+                break; 
+            case 'image/png': 
+                $image = imagecreatefrompng($source);
+                break; 
+            case 'image/gif': 
+                $image = imagecreatefromgif($source);
+                break; 
+            default: 
+                $image = imagecreatefromjpeg($source);
+        } 
+        // Save image 
+        imagejpeg($image, $destination, $quality); 
+         
+        // Return compressed image 
+        return $destination; 
+    }
+
+    
+
+    /**
+    *
+    * Author: CodexWorld
+    * Function Name: cwUpload()
+    * $field_name => Input file field name.
+    * $target_folder => Folder path where the image will be uploaded.
+    * $file_name => Custom thumbnail image name. Leave blank for default image name.
+    * $thumb => TRUE for create thumbnail. FALSE for only upload image.
+    * $thumb_folder => Folder path where the thumbnail will be stored.
+    * $thumb_width => Thumbnail width.
+    * $thumb_height => Thumbnail height.
+    *
+    **/
+    public function cwUpload($field_name = '', $target_folder = '', $file_name = '', $thumb = FALSE, $thumb_folder = '', $thumb_width = '', $thumb_height = ''){
+
+        //folder path setup
+        $target_path = $target_folder;
+        $thumb_path = $thumb_folder;
+        
+        //file name setup
+        $filename_err = explode(".",$_FILES[$field_name]['name']);
+        $filename_err_count = count($filename_err);
+        $file_ext = $filename_err[$filename_err_count-1];
+        if($file_name != ''){
+            $fileName = $file_name.'.'.$file_ext;
+        }else{
+            $fileName = $_FILES[$field_name]['name'];
+        }
+        
+        //upload image path
+        $upload_image = $target_path.basename($fileName);
+        
+        //upload image
+        if(move_uploaded_file($_FILES[$field_name]['tmp_name'],$upload_image))
+        {
+            //thumbnail creation
+            if($thumb == TRUE)
+            {
+                $thumbnail = $thumb_path.$fileName;
+                list($width,$height) = getimagesize($upload_image);
+                $thumb_create = imagecreatetruecolor($thumb_width,$thumb_height);
+                switch($file_ext){
+                    case 'jpg':
+                        $source = imagecreatefromjpeg($upload_image);
+                        break;
+                    case 'jpeg':
+                        $source = imagecreatefromjpeg($upload_image);
+                        break;
+
+                    case 'png':
+                        $source = imagecreatefrompng($upload_image);
+                        break;
+                    case 'gif':
+                        $source = imagecreatefromgif($upload_image);
+                        break;
+                    default:
+                        $source = imagecreatefromjpeg($upload_image);
+                }
+
+                imagecopyresized($thumb_create,$source,0,0,0,0,$thumb_width,$thumb_height,$width,$height);
+                switch($file_ext){
+                    case 'jpg' || 'jpeg':
+                        imagejpeg($thumb_create,$thumbnail,90);
+                        imagejpeg($source, $upload_image, 50);
+                        break;
+                    case 'png':
+                        imagepng($thumb_create,$thumbnail,90);
+                        imagepng($source, $upload_image, 50);
+                        break;
+
+                    case 'gif':
+                        imagegif($thumb_create,$thumbnail,90);
+                        imagegif($source, $upload_image, 50);
+                        break;
+                    default:
+                        imagejpeg($thumb_create,$thumbnail,90);
+                        imagejpeg($source, $upload_image, 50);
+                }
+
+            }
+
+            return $fileName;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     //to create new articles
-    public function createArticle($data){
-        //define images path
-        $target_dir = "images/articles/";
-        //create image name with random number
+    public function createArticle($data){        
         $imageName = $data['article_image_name'];
-        $target_file = $target_dir . basename($imageName);
-        // Select file type
-        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-        // Valid file extensions
-        $extensions_arr = array("jpg","jpeg","png","gif");
-         // Check extension
-        if( in_array($imageFileType,$extensions_arr) ){
-            // Upload file
-            move_uploaded_file($_FILES['name_imag']['tmp_name'],$target_dir.$imageName);
-        }
 
+        $imageDir = "images/articles/";
+        $thumbnailDir = "images/articles/thumbnails/";
+        
+        $upload_img = $this->cwUpload('name_imag', $imageDir, '', TRUE, $thumbnailDir, '200', '200');
         /************replace [mtgcard]card[/mtgcard] with deckbox.org tooltips***********/
         $content = $data['article_description'];
         $cardsParsed = preg_replace('/\[mtgcard\](.*?)\[\/mtgcard\]/', '<a href="https://deckbox.org/mtg/$1">$1</a>', $content);
@@ -202,7 +319,7 @@ class Articles{
         $this->db->bind(':desc_arti', $parsedArticle, PDO::PARAM_STR);
         $this->db->bind(':date_arti', $article_date, PDO::PARAM_STR);
         $this->db->bind(':frmt_arti', $data['artcile_format_id'], PDO::PARAM_INT);
-        $this->db->bind(':preimage_arti', $imageName, PDO::PARAM_STR);
+        $this->db->bind(':preimage_arti', $upload_img, PDO::PARAM_STR);
         $this->db->bind(':user_arti', $_SESSION['id_user'], PDO::PARAM_STR);
 
 

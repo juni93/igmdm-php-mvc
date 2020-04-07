@@ -6,3 +6,5 @@ images/
 test.php
 db/
 resources/
+*.jpg
+*.png
