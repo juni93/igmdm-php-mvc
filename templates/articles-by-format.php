@@ -1,10 +1,10 @@
 <?php 
     $robots = "index,follow";
     $pageTitle = "Magic: the Gathering strategia, magic arena, magic online"; 
-    $pageDesc = "Articoli su magic the gathering famoso gioco di carte, contenuti su mtga pro, mtg arena decks, mtgtop8, magic arena, planeswaker, analisi tier list, metagame, decktech su best decks";
+    $pageDesc = "Articoli e analisi su mtg " . $formatName . " tier list, metagame, decktech";
     $pageType = "articles listing";
     $pageImage = ABSOLUTE_PATH . "resources/logos/igmdm.svg";
-    $ogDesc = "Articoli su magic gathering, mtga pro, mtg arena deck, mtgtop8, magic arena, planeswaker, analisi tier list, decktech su best decks";
+    $ogDesc = "Articoli e analisi su " . $formatName . " tier list, metagame, decktech";
     $ogTitle = "Articoli su Magic: the Gathering";
     $pageUrl = "https://igmdm.com/articles" ;
     include 'inc/header.php'; 

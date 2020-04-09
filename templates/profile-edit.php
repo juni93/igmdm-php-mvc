@@ -1,4 +1,14 @@
-<?php include 'inc/header.php'; ?>
+<?php 
+    $robots = "noindex,nofollow";
+    $pageTitle = "Giocatore medio di magic - Magic the Gathering Articoli, Mazzi, e Strategia"; 
+    $pageDesc = "magic: the gathering arena decks, metagame, archetype, standard, pioneer, modern, mtgo prices, prices, speculation, speculators, trends";
+    $pageType = "website";
+    $ogTitle = "Giocatore medio di magic - Magic the Gathering Articoli, Mazzi, e Strategia";
+    $ogDesc = "Giocatore medio di magic - Magic the Gathering Articoli, Mazzi, e Strategia";
+    $pageImage = ABSOLUTE_PATH . "resources/logos/igmdm.svg";
+    $pageUrl = "https://igmdm.com/" ;
+    include 'inc/header.php'; 
+?>
 <div class="container">
         <h2 class="m-4"> Modifica Profilo</h2>
         <form class="m-4" method="POST" enctype="multipart/form-data" action="<?php echo BASE_PATH; ?>/update-profile">

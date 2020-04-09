@@ -1,4 +1,14 @@
-<?php include 'inc/header.php'; ?>
+<?php 
+    $robots = "noindex,nofollow";
+    $pageTitle = "Giocatore medio di magic - Magic the Gathering Articoli, Mazzi, e Strategia"; 
+    $pageDesc = "magic: the gathering arena decks, metagame, archetype, standard, pioneer, modern, mtgo prices, prices, speculation, speculators, trends";
+    $pageType = "website";
+    $ogTitle = "Giocatore medio di magic - Magic the Gathering Articoli, Mazzi, e Strategia";
+    $ogDesc = "Giocatore medio di magic - Magic the Gathering Articoli, Mazzi, e Strategia";
+    $pageImage = ABSOLUTE_PATH . "resources/logos/igmdm.svg";
+    $pageUrl = "https://igmdm.com/" ;
+    include 'inc/header.php'; 
+?>
 
 
 <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
@@ -8,7 +18,7 @@
         </div>
                 <div class="row">
                     <?php if($_SESSION['super_user'] == true): ?>
-                        <h4 class="font-weight-bold">Di seguito gli articoli da approvare: </h4>
+                        <h4 class="font-weight-bold">Di seguito gli articoli da pubblicare: </h4>
                         <table class="table table-hover">
                             <thead>
                                 <tr>
@@ -25,7 +35,7 @@
                             <tbody>
                                 <?php foreach($articlesToBeApproved as $article): ?>
                                     <tr>
-                                        <td><img src="<?php echo ABSOLUTE_PATH; ?>images/articles/<?php echo $article->preimage_arti; ?>" alt="<?php echo $article->name_arti; ?>" class="mx-auto" style="width: 80px; height:80px"></td>
+                                        <td><img src="<?php echo ABSOLUTE_PATH; ?>images/articles/<?php echo $article->preimage_arti; ?>" alt="" class="mx-auto" style="width: 80px; height:80px"></td>
                                         <td><?php echo $article->name_arti; ?></td>
                                         <td><?php echo $article->name_frmt; ?></td>
                                         <td><?php echo $article->date_arti; ?></td>
@@ -33,9 +43,7 @@
                                         <td><a href="<?php echo BASE_PATH; ?>/article/<?php echo $article->id_arti; ?>/<?php echo $article->name_arti; ?>" class='btn btn-outline-primary btn-sm' style="width: 80px;"><small>View</small></a></td>
                                         <td><a href="<?php echo BASE_PATH; ?>/publish-article/<?php echo $article->id_arti; ?>" class='btn btn-outline-primary btn-sm' style="width: 80px;"><small>Publish</small></a></td>
                                         <td>
-                                          
-                                                <a href="<?php echo BASE_PATH; ?>/edit-article/<?php echo $article->id_arti; ?>" class='btn btn-outline-primary btn-sm' style="width: 80px;"><small>Edit</small></a>
-
+											<a href="<?php echo BASE_PATH; ?>/edit-article/<?php echo $article->id_arti; ?>" class='btn btn-outline-primary btn-sm' style="width: 80px;"><small>Edit</small></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -59,7 +67,7 @@
                                 <?php foreach($articlesToBeApproved as $article): ?>
                                     <?php if($article->user_arti ==  $_SESSION['id_user']): ?>
                                     <tr>
-                                        <td><img src="<?php echo ABSOLUTE_PATH; ?>images/articles/<?php echo $article->preimage_arti; ?>" alt="<?php echo $article->name_arti; ?>" class="mx-auto" style="width: 80px; height:80px"></td>
+                                        <td><img src="<?php echo ABSOLUTE_PATH; ?>images/articles/<?php echo $article->preimage_arti; ?>" alt="" class="mx-auto" style="width: 80px; height:80px"></td>
                                         <td><?php echo $article->name_arti; ?></td>
                                         <td><?php echo $article->name_frmt; ?></td>
                                         <td><?php echo $article->date_arti; ?></td>

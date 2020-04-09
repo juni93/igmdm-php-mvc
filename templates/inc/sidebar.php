@@ -10,7 +10,7 @@
         <?php $data_torneo = date_create($tournament->date_tournament); ?>
         <?php if($tournament->format_tournament == "standard"): ?>
             <ul class="list-group list-group-horizontal-sm small" style="border: 0px none transparent;">
-                <li class="list-group-item col-sm-6 p-0" style="border-bottom: 1px solid;"><a href="<?php echo $tournament->url_tournament ?>"><?php echo substr($tournament->name_tournament, 0, 25) ?></a></li>
+                <li class="list-group-item col-sm-6 p-0" style="border-bottom: 1px solid;"><a href="<?php echo $tournament->url_tournament ?>" rel="nofollow"><?php echo substr($tournament->name_tournament, 0, 25) ?></a></li>
                 <li class="list-group-item col-sm-2 p-0" style="border-bottom: 1px solid;"><?php echo date_format($data_torneo, 'd/m') ?></li>
                 <li class="list-group-item col-sm-4 p-0" style="border-bottom: 1px solid;"><?php echo $tournament->win_deck_tournament ?></li>
             </ul>
@@ -27,7 +27,7 @@
         <?php $data_torneo = date_create($tournament->date_tournament); ?>
         <?php if($tournament->format_tournament == "pioneer"): ?>
             <ul class="list-group list-group-horizontal-sm small" style="border: 0px none transparent;">
-                <li class="list-group-item col-sm-6 p-0" style="border-bottom: 1px solid;"><a href="<?php echo $tournament->url_tournament ?>"><?php echo substr($tournament->name_tournament, 0, 25) ?></a></li>
+                <li class="list-group-item col-sm-6 p-0" style="border-bottom: 1px solid;"><a href="<?php echo $tournament->url_tournament ?>" rel="nofollow"><?php echo substr($tournament->name_tournament, 0, 25) ?></a></li>
                 <li class="list-group-item col-sm-2 p-0" style="border-bottom: 1px solid;"><?php echo date_format($data_torneo, 'd/m') ?></li>
                 <li class="list-group-item col-sm-4 p-0" style="border-bottom: 1px solid;"><?php echo $tournament->win_deck_tournament ?></li>
             </ul>
@@ -43,7 +43,7 @@
         <?php $data_torneo = date_create($tournament->date_tournament); ?>
         <?php if($tournament->format_tournament == "pauper"): ?>
             <ul class="list-group list-group-horizontal-sm small" style="border: 0px none transparent;">
-                <li class="list-group-item col-sm-6 p-0" style="border-bottom: 1px solid;"><a href="<?php echo $tournament->url_tournament ?>"><?php echo substr($tournament->name_tournament, 0, 25) ?></a></li>
+                <li class="list-group-item col-sm-6 p-0" style="border-bottom: 1px solid;"><a href="<?php echo $tournament->url_tournament ?>" rel="nofollow"><?php echo substr($tournament->name_tournament, 0, 25) ?></a></li>
                 <li class="list-group-item col-sm-2 p-0" style="border-bottom: 1px solid;"><?php echo date_format($data_torneo, 'd/m') ?></li>
                 <li class="list-group-item col-sm-4 p-0" style="border-bottom: 1px solid;"><?php echo $tournament->win_deck_tournament ?></li>
             </ul>
@@ -59,7 +59,7 @@
         <?php $data_torneo = date_create($tournament->date_tournament); ?>
         <?php if($tournament->format_tournament == "modern"): ?>
             <ul class="list-group list-group-horizontal-sm small" style="border: 0px none transparent;">
-                <li class="list-group-item col-sm-6 p-0" style="border-bottom: 1px solid;"><a href="<?php echo $tournament->url_tournament ?>"><?php echo substr($tournament->name_tournament, 0, 25) ?></a></li>
+                <li class="list-group-item col-sm-6 p-0" style="border-bottom: 1px solid;"><a href="<?php echo $tournament->url_tournament ?>" rel="nofollow"><?php echo substr($tournament->name_tournament, 0, 25) ?></a></li>
                 <li class="list-group-item col-sm-2 p-0" style="border-bottom: 1px solid;"><?php echo date_format($data_torneo, 'd/m') ?></li>
                 <li class="list-group-item col-sm-4 p-0" style="border-bottom: 1px solid;"><?php echo $tournament->win_deck_tournament ?></li>
             </ul>
@@ -75,7 +75,7 @@
         <?php $data_torneo = date_create($tournament->date_tournament); ?>
         <?php if($tournament->format_tournament == "legacy"): ?>
             <ul class="list-group list-group-horizontal-sm small" style="border: 0px none transparent;">
-                <li class="list-group-item col-sm-6 p-0" style="border-bottom: 1px solid;"><a href="<?php echo $tournament->url_tournament ?>"><?php echo substr($tournament->name_tournament, 0, 25) ?></a></li>
+                <li class="list-group-item col-sm-6 p-0" style="border-bottom: 1px solid;"><a href="<?php echo $tournament->url_tournament ?>" rel="nofollow"><?php echo substr($tournament->name_tournament, 0, 25) ?></a></li>
                 <li class="list-group-item col-sm-2 p-0" style="border-bottom: 1px solid;"><?php echo date_format($data_torneo, 'd/m') ?></li>
                 <li class="list-group-item col-sm-4 p-0" style="border-bottom: 1px solid;"><?php echo $tournament->win_deck_tournament ?></li>
             </ul>

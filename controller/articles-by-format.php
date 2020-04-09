@@ -5,7 +5,7 @@ $articlesCls = new Articles;
 $formatCls = new Formats;
 
 //Article Listing template
-$template = new Template('templates/article-listing.php');
+$template = new Template('templates/articles-by-format.php');
 
 $template->allFormats = $formatCls->getAllFormats();
 
@@ -14,6 +14,7 @@ $parts = parse_url($_SERVER['REQUEST_URI']);
 if (isset($parts['path'])) {
    $params = explode('/', $parts['path']);
    $selectedFormatId = $params[4];
+   $template->formatName = $params[3];
 }
 
 if($selectedFormatId){

@@ -1,7 +1,10 @@
 <?php 
-    $pageTitle = "Il giocatore medio di Magic è una persona bella"; 
+    $robots = "noindex,nofollow";
+    $pageTitle = "Eventi IGMDM Magic: the Gathering"; 
     $pageDesc = "dove trovare articoli su decktech, (Standard, T2, Pioneer, Arena, Modern, Legacy, EDH, Commander), tornei (Arena Leagues, MTGO, Championship, Magicfest) e interviste ai streamers.";
     $pageType = "website";
+    $ogDesc = $pageDesc;
+    $ogTitle ="";
     $pageImage = ABSOLUTE_PATH . "resources/logos/igmdm.svg";
     $pageUrl = "https://igmdm.com/events" ;
     include 'inc/header.php'; 

@@ -268,7 +268,7 @@ class Articles{
         $imageDir = "images/articles/";
         $thumbnailDir = "images/articles/thumbnails/";
         
-        $upload_img = $this->cwUpload('name_imag', $imageDir, '', TRUE, $thumbnailDir, '200', '200');
+        $upload_img = $this->cwUpload('name_imag', $imageDir, '', TRUE, $thumbnailDir, '120', '120');
         /************replace [mtgcard]card[/mtgcard] with deckbox.org tooltips***********/
         $content = $data['article_description'];
         $cardsParsed = preg_replace('/\[mtgcard\](.*?)\[\/mtgcard\]/', '<a href="https://deckbox.org/mtg/$1">$1</a>', $content);

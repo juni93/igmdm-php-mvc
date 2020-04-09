@@ -1,4 +1,15 @@
-<?php include 'inc/header.php'; ?>
+
+<?php 
+$robots = "noindex,nofollow";
+$pageTitle = "Giocatore medio di magic - Magic the Gathering Articoli, Mazzi, e Strategia"; 
+$pageDesc = "magic: the gathering arena decks, metagame, archetype, standard, pioneer, modern, mtgo prices, prices, speculation, speculators, trends";
+$pageType = "website";
+$ogTitle = "Giocatore medio di magic - Magic the Gathering Articoli, Mazzi, e Strategia";
+$ogDesc = "Giocatore medio di magic - Magic the Gathering Articoli, Mazzi, e Strategia";
+$pageImage = ABSOLUTE_PATH . "resources/logos/igmdm.svg";
+$pageUrl = "https://igmdm.com/" ;
+include 'inc/header.php'; 
+?>
 
 
     <h2 class="m-4"> Scrivi il tuo articolo!</h2>
@@ -103,8 +114,8 @@
     
 
 <?php include 'inc/footer.php'; ?>
- <!--scripts per summernote editor-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<!--scripts per summernote editor-->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://rawgit.com/summernote/summernote/develop/dist/summernote.min.js"></script>
 <script>
@@ -148,7 +159,7 @@ function uploadImage(file, el) {
         contentType: false,
         processData: false,
         success: function(url) {
-            $(el).summernote('editor.insertImage', '/project' + url);
+            $(el).summernote('editor.insertImage', 'https://igmdm.com/' + url);
         }
     });
 }

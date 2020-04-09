@@ -1,4 +1,14 @@
-<?php include 'inc/header.php'; ?>
+<?php 
+$robots = "noindex,nofollow";
+$pageTitle = "Giocatore medio di magic - Magic the Gathering Articoli, Mazzi, e Strategia"; 
+$pageDesc = "magic: the gathering arena decks, metagame, archetype, standard, pioneer, modern, mtgo prices, prices, speculation, speculators, trends";
+$pageType = "website";
+$ogTitle = "Giocatore medio di magic - Magic the Gathering Articoli, Mazzi, e Strategia";
+$ogDesc = "Giocatore medio di magic - Magic the Gathering Articoli, Mazzi, e Strategia";
+$pageImage = ABSOLUTE_PATH . "resources/logos/igmdm.svg";
+$pageUrl = "https://igmdm.com/" ;
+include 'inc/header.php'; 
+?>
 
 
     <h2 class="m-4"> Crea nuovo Evento</h2>

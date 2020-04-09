@@ -11,21 +11,20 @@
             <div class="clearfix">
                 <!-- Copyright Info -->
                 <div class="float-left ">
-                    <a href="#">Termini e Condizioni di Utilizzo</a> |
-                    <a href="#">Collaborazione</a>
+                    <a rel="nofollow" title="Termini e Condizioni" href="#">Termini e Condizioni</a>
                 </div>
                 <div class="float-right">
-                    Developed by <a href="https://www.linkedin.com/in/juni-ali/" target="_blank">Junaid Ali</a>
+                    Developed by <a title="Profilo Linkedin dello sviluppatore del Sito" href="https://www.linkedin.com/in/juni-ali/" target="_blank">Junaid Ali</a>
                 </div>
                 <!-- END Copyright Info -->
             </div>
             <div class="row">
                 <div class="col-1">
-                    <a href="<?php echo BASE_PATH; ?>/admin-area" class="d-flex">Admin</a>
+                    <a title="Login Page" rel="nofollow" href="<?php echo BASE_PATH; ?>/admin-area" class="d-flex">Admin</a>
                 </div>
                 <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
                 <div class="col-1">
-                    <a href="<?php echo BASE_PATH; ?>/logout" class="d-flex">Logout</a>
+                    <a title="Logout Page" rel="nofollow" href="<?php echo BASE_PATH; ?>/logout" class="d-flex">Logout</a>
                 </div>
                 <?php endif; ?>
             </div>
@@ -34,7 +33,7 @@
 
 
         <!--DECKBOX.org JS for tooltips-->
-        <script src="https://deckbox.org/assets/external/tooltip.js"></script>
+        <script src="<?php echo ABSOLUTE_PATH; ?>resources/js/tooltips.js"></script>
 
 
         <!--JS BOOTSTRAP-->
@@ -87,6 +86,14 @@
                         }, 800);
                         return false;
                     });
+            });
+            //remove iframe < 992px
+            jQuery(window).resize(function () {
+                if (jQuery(this).width() < 992) {
+                    jQuery("iframe").hide();
+                } else{
+                    jQuery("iframe").show();
+                }
             });
         </script>
     </body>
