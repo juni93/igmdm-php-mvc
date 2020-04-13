@@ -40,7 +40,7 @@
                                         <td><?php echo $article->name_frmt; ?></td>
                                         <td><?php echo $article->date_arti; ?></td>
                                         <td><?php echo $article->name_user; ?></td>
-                                        <td><a href="<?php echo BASE_PATH; ?>/article/<?php echo $article->id_arti; ?>/<?php echo $article->name_arti; ?>" class='btn btn-outline-primary btn-sm' style="width: 80px;"><small>View</small></a></td>
+                                        <td><a href="<?php echo BASE_PATH; ?>/article/<?php echo $article->id_arti; ?>/<?php echo $article->url_arti; ?>" class='btn btn-outline-primary btn-sm' style="width: 80px;"><small>View</small></a></td>
                                         <td><a href="<?php echo BASE_PATH; ?>/publish-article/<?php echo $article->id_arti; ?>" class='btn btn-outline-primary btn-sm' style="width: 80px;"><small>Publish</small></a></td>
                                         <td>
 											<a href="<?php echo BASE_PATH; ?>/edit-article/<?php echo $article->id_arti; ?>" class='btn btn-outline-primary btn-sm' style="width: 80px;"><small>Edit</small></a>
@@ -72,7 +72,7 @@
                                         <td><?php echo $article->name_frmt; ?></td>
                                         <td><?php echo $article->date_arti; ?></td>
                                         <td><?php echo $article->name_user; ?></td>
-                                        <td><a href="<?php echo BASE_PATH; ?>/article/<?php echo $article->id_arti; ?>/<?php echo $article->name_arti; ?>" class='btn btn-outline-primary btn-sm' style="width: 80px;"><small>View</small></a></td>                                       
+                                        <td><a href="<?php echo BASE_PATH; ?>/article/<?php echo $article->id_arti; ?>/<?php echo $article->url_arti; ?>" class='btn btn-outline-primary btn-sm' style="width: 80px;"><small>View</small></a></td>                                       
                                         <td><a href="<?php echo BASE_PATH; ?>/edit-article/<?php echo $article->id_arti; ?>" class='btn btn-outline-primary btn-sm' style="width: 80px;"><small>Edit</small></a></td>
                                     </tr>
                                     <?php endif; ?>

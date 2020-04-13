@@ -116,7 +116,7 @@ class Api{
         $sql = "select * from tournaments
         where format_tournament = 'pioneer'
         order by tstamp DESC 
-        limit 10;";
+        limit 5;";
 
         $this->db->query($sql);
 
