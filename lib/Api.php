@@ -86,7 +86,7 @@ class Api{
     public function getTournamentDetails(){
         $sql = "SELECT * 
         FROM tournaments
-        order by format_tournament DESC, date_tournament DESC;";
+        order by format_tournament DESC, tstamp DESC;";
 
         $this->db->query($sql);
 
@@ -96,6 +96,80 @@ class Api{
         return $results;
     }
 
+    //get standard tournaments from DB
+    public function getStandardData(){
+        $sql = "select * from tournaments
+        where format_tournament = 'standard'
+        order by tstamp DESC 
+        limit 10;";
+
+        $this->db->query($sql);
+
+        //Assign Result Set
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
+
+    //get pioneer tournaments from DB
+    public function getPioneerData(){
+        $sql = "select * from tournaments
+        where format_tournament = 'pioneer'
+        order by tstamp DESC 
+        limit 10;";
+
+        $this->db->query($sql);
+
+        //Assign Result Set
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
+
+    //get modern tournaments from DB
+    public function getModernData(){
+        $sql = "select * from tournaments
+        where format_tournament = 'modern'
+        order by tstamp DESC 
+        limit 5;";
+
+        $this->db->query($sql);
+
+        //Assign Result Set
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
+
+    //get pauper tournaments from DB
+    public function getPauperData(){
+        $sql = "select * from tournaments
+        where format_tournament = 'pauper'
+        order by tstamp DESC 
+        limit 5;";
+
+        $this->db->query($sql);
+
+        //Assign Result Set
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
+
+    //get legacy tournaments from DB
+    public function getLegacyData(){
+        $sql = "select * from tournaments
+        where format_tournament = 'legacy'
+        order by tstamp DESC 
+        limit 5;";
+
+        $this->db->query($sql);
+
+        //Assign Result Set
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
   
     
 

@@ -10,6 +10,11 @@ $pageImage = ABSOLUTE_PATH . "resources/logos/igmdm.svg";
 $pageUrl = "https://igmdm.com/" ;
 include 'inc/header.php'; 
 ?>
+ <!--CSS sheet for text Editor with mtgcard tags-->
+ <link href="<?php echo ABSOLUTE_PATH; ?>resources/summernote/summernote-bs4.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+
+<!--CSS sheet for datepicker-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" rel="preload" as="style" onload="this.rel='stylesheet'">
 
 
     <h2 class="m-4"> Scrivi il tuo articolo!</h2>

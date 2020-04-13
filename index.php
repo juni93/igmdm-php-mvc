@@ -87,6 +87,11 @@ $router->map( 'GET', '/load-data', function() {
     require __DIR__ . '/controller/getAPIData.php';
 });
 
+// map api route using callable
+$router->map( 'POST', '/load-data', function() {
+    require __DIR__ . '/controller/getAPIData.php';
+});
+
 // map Profile route using callable
 $router->map( 'GET', '/profile', function() {
     require __DIR__ . '/controller/profile.php';

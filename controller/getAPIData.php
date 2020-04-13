@@ -32,11 +32,12 @@ if(isset($_POST['submit'])) {
                 echo "error ";
             }
         }
+        usleep(100);
     }
 }
 
 ?>
 
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+<form method="post" action="<?php echo BASE_PATH; ?>/load-data">
    <input type="submit" name="submit" value="Request Api Data"><br>
 </form>

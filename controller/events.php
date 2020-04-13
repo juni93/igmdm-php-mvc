@@ -9,7 +9,11 @@ $apiCls = new Api;
 //single article view template
 $template = new Template('templates/events-page.php');
 
-$template->tournaments = $apiCls->getTournamentDetails();
+$template->standards = $apiCls->getStandardData();
+$template->pioneers = $apiCls->getPioneerData();
+$template->moderns = $apiCls->getModernData();
+$template->paupers = $apiCls->getPauperData();
+$template->legacys = $apiCls->getLegacyData();
 //show all events
 $template->events = $eventsCls->getAllEvents();
 //for formats in header navbar

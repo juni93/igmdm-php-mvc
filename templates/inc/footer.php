@@ -87,14 +87,14 @@
                         return false;
                     });
             });
-            //remove iframe < 992px
+           /*  //remove iframe < 992px
             jQuery(window).resize(function () {
                 if (jQuery(this).width() < 992) {
                     jQuery("iframe").hide();
                 } else{
                     jQuery("iframe").show();
                 }
-            });
+            }); */
         </script>
     </body>
 </html>

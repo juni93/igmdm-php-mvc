@@ -1,6 +1,6 @@
 <?php 
     $robots = "index,follow";
-    $pageTitle = "Giocatore medio di - Magic the Gathering, Articoli, Mazzi, Strategia e tornei"; 
+    $pageTitle = "Giocatore medio di - Magic the Gathering, Articoli, Mazzi e tornei"; 
     $pageDesc = "magic: the gathering arena decks, metagame, archetype, standard, pioneer, modern, mtgo prices, prices, speculation, speculators, trends";
     $pageType = "website";
     $ogTitle = "Giocatore medio di magic - Magic the Gathering Articoli, Mazzi, e Strategia";
@@ -15,8 +15,8 @@
         <div class="col-md-8">
             <div class="col-md-12 p-1">
 				<h1 class="sr-only">Giocatore medio - Magic the Gathering Articoli, Mazzi, e Strategia</h1>
-                <iframe src="https://player.twitch.tv/?channel=ilgiocatoremediodimagic" frameborder="0" allowfullscreen="true" scrolling="no" height="378"></iframe>
-            </div>
+                <!-- <iframe src="https://player.twitch.tv/?channel=ilgiocatoremediodimagic" frameborder="0" allowfullscreen="true" scrolling="no" height="378"></iframe>
+             --></div>
             <div class="row no-gutters" itemscope itemtype="http://schema.org/NewsArticle">
                 <?php foreach($hpArticles as $hpArticle): ?>
                 <?php $description = substr($hpArticle->desc_arti, 0, 30); ?>
@@ -30,7 +30,7 @@
                         </div>
                         <div class="card-body d-flex flex-column">
                             <h2 class="card-title h2 small font-weight-bold" itemprop="headline"> <?php echo $hpArticle->name_arti; ?> </h2>
-                            <p class="card-text small" itemprop="description"><?php echo substr(strip_tags($hpArticle->desc_arti), 0, 100); ?></p>
+                            <p class="card-text small" itemprop="description"><?php echo substr(strip_tags(html_entity_decode($hpArticle->desc_arti)), 0, 100); ?></p>
                             <span class="sr-only" itemprop="datePublished" content="<?php echo $hpArticle->date_arti; ?>"><?php echo $hpArticle->date_arti; ?></span>
                             <a class="btn btn-outline-primary btn-sm align-self-end mt-auto" type="submit" href="<?php echo BASE_PATH; ?>/article/<?php echo $hpArticle->id_arti; ?>/<?php echo $hpArticle->url_arti; ?>" >
                                <span class="small">Leggi...</span>

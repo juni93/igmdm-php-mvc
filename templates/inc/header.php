@@ -35,23 +35,12 @@
         <!--CDN CSS BOOTSTRAP-->
         <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
          -->
-        <link rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" as="style" onload="this.rel='stylesheet'">
+         <!--BootStrap customized theme-->
+        <link rel="stylesheet" href="<?php echo ABSOLUTE_PATH; ?>resources/css/main.css">
         <!--FONT AWESOME-->
         <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" as="style" onload="this.rel='stylesheet'">
-
-        <!--BootStrap Template United-->
-        <link rel="preload" href="<?php echo ABSOLUTE_PATH; ?>resources/css/bootstrap-bootswatch-united.css" as="style" onload="this.rel='stylesheet'">
-
         <!--Custom CSS-->
         <link rel="preload" href="<?php echo ABSOLUTE_PATH; ?>resources/css/styles.css" as="style" onload="this.rel='stylesheet'">
-
-        <!--CSS sheet for text Editor with mtgcard tags-->
-        <link href="<?php echo ABSOLUTE_PATH; ?>resources/summernote/summernote-bs4.css" rel="preload" as="style" onload="this.rel='stylesheet'">
-
-        <!--CSS sheet for datepicker-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" rel="preload" as="style" onload="this.rel='stylesheet'">
-    
-        
     </head>
     <body >
         <nav class="navbar navbar-expand-lg  navbar-light" style="background-color: #ffa500;">

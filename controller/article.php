@@ -9,7 +9,11 @@ $apiCls = new Api;
 $template = new Template('templates/article-page.php');
 $template->allFormats = $formatCls->getAllFormats();
 
-$template->tournaments = $apiCls->getTournamentDetails();
+$template->standards = $apiCls->getStandardData();
+$template->pioneers = $apiCls->getPioneerData();
+$template->moderns = $apiCls->getModernData();
+$template->paupers = $apiCls->getPauperData();
+$template->legacys = $apiCls->getLegacyData();
 
 
 $parts = parse_url($_SERVER['REQUEST_URI']);

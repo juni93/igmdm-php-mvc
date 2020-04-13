@@ -5,7 +5,6 @@ $usersCls = new Users;
 if(isset($_POST['update_profile'])){
     $data = array();
     $data['name_user'] = $_POST['name_user'];
-    $data['nick_user'] = $_POST['nick_user'];
     $data['desc_user'] = $_POST['desc_user'];
     $data['imag_user'] = $_FILES['imag_user']['name'];
     

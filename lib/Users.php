@@ -55,7 +55,6 @@ class Users{
 
         $sql = ("UPDATE users 
             SET
-            nick_user = :nick_user,
             name_user = :name_user,
             desc_user = :desc_user,
             imag_user = :imag_user
@@ -64,7 +63,6 @@ class Users{
         $this->db->query($sql);
 
         //bind values from form
-        $this->db->bind(':nick_user', $data['nick_user'], PDO::PARAM_STR);
         $this->db->bind(':name_user', $data['name_user'], PDO::PARAM_STR);
         $this->db->bind(':desc_user', $data['desc_user'], PDO::PARAM_STR);
         $this->db->bind(':imag_user', $data['imag_user'], PDO::PARAM_STR);

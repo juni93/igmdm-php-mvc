@@ -8,7 +8,11 @@ $apiCls = new Api;
 //HomePage template
 $template = new Template('templates/homepage.php');
 $template->allFormats = $formatCls->getAllFormats();
-$template->tournaments = $apiCls->getTournamentDetails();
+$template->standards = $apiCls->getStandardData();
+$template->pioneers = $apiCls->getPioneerData();
+$template->moderns = $apiCls->getModernData();
+$template->paupers = $apiCls->getPauperData();
+$template->legacys = $apiCls->getLegacyData();
 
 //show recent 6 articles in homepage
 $template->hpArticles = $articlesCls->getHpArticles();
