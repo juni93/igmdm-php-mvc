@@ -27,7 +27,7 @@
     {
         exit();
     }
-    $errorImgFile = "../images/img_upload_error.jpg";
+    $errorImgFile = "error";
     $temp = explode(".", $_FILES["file"]["name"]);
     $newfilename = round(microtime(true)) . '.' . end($temp);
     $destinationFilePath = '../images/articles/'.$newfilename ;

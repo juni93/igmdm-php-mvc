@@ -20,14 +20,29 @@ $router->map( 'GET', '/articles', function() {
     require __DIR__ . '/controller/listarticles.php';
 });
 
+// map decklists listing page using callable
+$router->map( 'GET', '/decklists', function() {
+    require __DIR__ . '/controller/listdecks.php';
+});
+
 // map Article listing by format page using callable
 $router->map( 'GET', '/articles-by-format/[:action]/[i:id]', function($name, $id) {
     require __DIR__ . '/controller/articles-by-format.php';
 });
 
+// map decklists listing by format page using callable
+$router->map( 'GET', '/decklists-by-format/[:action]/[i:id]', function($name, $id) {
+    require __DIR__ . '/controller/decklists-by-format.php';
+});
+
 // map articles by user route using callable
-$router->map( 'GET', '/articles-by-user/[i:id]', function() {
+$router->map( 'GET', '/articles-by-user/[i:id]', function($id) {
     require __DIR__ . '/controller/articles-by-user.php';
+});
+
+// map decklists by user route using callable
+$router->map( 'GET', '/decklists-by-user/[i:id]', function($id) {
+    require __DIR__ . '/controller/decklists-by-user.php';
 });
 
 // map Events listing page using callable
@@ -40,9 +55,20 @@ $router->map( 'GET', '/new-article', function() {
     require __DIR__ . '/controller/createarticles.php';
 });
 
+// map create article page using callable
+$router->map( 'GET', '/new-deck', function() {
+    require __DIR__ . '/controller/createdecks.php';
+});
+
 // map creating new  page using callable
 $router->map( 'POST', '/creating-new-article', function() {
     require __DIR__ . '/controller/createarticles.php';
+});
+
+
+// map creating new  page using callable
+$router->map( 'POST', '/creating-new-decklist', function() {
+    require __DIR__ . '/controller/createdecks.php';
 });
 // map create new event page using callable
 $router->map( 'GET', '/new-event', function() {
@@ -55,6 +81,10 @@ $router->map( 'GET', '/admin-area', function() {
 // map article route using callable
 $router->map( 'GET', '/article/[i:id]/[:action]', function() {
     require __DIR__ . '/controller/article.php';
+});
+// map decklist route using callable
+$router->map( 'GET', '/decklist/[i:id]/[:action]', function() {
+    require __DIR__ . '/controller/decklist.php';
 });
 // map edit article route using callable
 $router->map( 'GET', '/edit-article/[i:id]', function() {

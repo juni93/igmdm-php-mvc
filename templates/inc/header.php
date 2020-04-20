@@ -40,58 +40,84 @@
         <!--FONT AWESOME-->
         <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" as="style" onload="this.rel='stylesheet'">
         <!--Custom CSS-->
-        <link rel="preload" href="<?php echo ABSOLUTE_PATH; ?>resources/css/styles.css" as="style" onload="this.rel='stylesheet'">
+        <link rel="stylesheet" href="<?php echo ABSOLUTE_PATH; ?>resources/css/styles.css">
     </head>
     <body >
-        <nav class="navbar navbar-expand-lg  navbar-light" style="background-color: #ffa500;">
-            <a class="navbar-brand" href="<?php echo BASE_PATH; ?>/home">
-                <img src="<?php echo ABSOLUTE_PATH; ?>resources/logos/igmdm.svg" width="50" height="50" class="d-inline-block pb-2" alt="IGMDM">
-                IGMDM
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" title="Home - IGMDM Magic the Gathering" href="<?php echo BASE_PATH; ?>/">Home</a>
-                    </li>
-                    <li class="dropdown">
-                        <a class="nav-link dropdown-toggle" id="articoli" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Articoli</a>
-                            <div class="dropdown-menu" aria-labelledby="articoli">
-                                <a class="dropdown-item" title="Articoli su Magic the Gathering (Online, Arena e Tornei )" href="<?php echo BASE_PATH; ?>/articles">Tutti gli Articoli</a>
-                                <?php foreach($allFormats as $format): ?>
-                                <a class="dropdown-item" title="Articoli su <?php echo $format->name_frmt; ?> Magic the Gathering" href="<?php echo BASE_PATH; ?>/articles-by-format/<?php echo $format->name_frmt; ?>/<?php echo $format->id_frmt; ?>"><?php echo $format->name_frmt; ?></a>
-                                <?php endforeach; ?>
-                            </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" title="Eventi Magic the Gathering organizzati da IGMDM" href="<?php echo BASE_PATH; ?>/events">Eventi</a>
-                    </li>
-                    <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                        <li class="nav-item">
-                            <a class="nav-link" rel="nofollow" title="Scrivi nuovo articolo" href="<?php echo BASE_PATH; ?>/new-article">Nuovo Articolo</a>
-                        </li>
-                        <?php if(isset($_SESSION['super_user']) && $_SESSION['super_user'] === '1' ) : ?>
-                            <li class="nav-item">
-                                <a class="nav-link" rel="nofollow" title="Crea nuovo evento" href="<?php echo BASE_PATH; ?>/new-event">Nuovo Evento</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" rel="nofollow" title="Crea nuovo utente" href="<?php echo BASE_PATH; ?>/create-new-users">Nuovo utente</a>
-                            </li>
-                        <?php endif; ?>
-                        <li class="nav-item">
-                                <a class="nav-link" rel="nofollow" title="Modifica Profilo" href="<?php echo BASE_PATH; ?>/profile">Profilo</a>
-                            </li>
-                    <?php endif; ?>
-                    
-                </ul>
+        <div class="container-fluid px-0 bg-primary">
+            <div class="flex-row d-flex justify-content-center" >
+                <nav class="navbar navbar-expand-lg  navbar-light" >
+                    <a class="navbar-brand" href="<?php echo BASE_PATH; ?>/home">
+                        <img src="<?php echo ABSOLUTE_PATH; ?>resources/logos/igmdm.svg" width="50" height="50" class="d-inline-block pb-2" alt="IGMDM">
+                        IGMDM
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                           <!--  <li class="nav-item">
+                                <a class="nav-link" title="Home - IGMDM Magic the Gathering" href="<?php echo BASE_PATH; ?>/">Home</a>
+                            </li> -->
+                            <!-- <li class="dropdown">
+                                <a class="nav-link dropdown-toggle" id="articoli" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Articoli</a>
+                                    <div class="dropdown-menu" aria-labelledby="articoli">
+                                        <a class="dropdown-item" title="Articoli su Magic the Gathering (Online, Arena e Tornei )" href="<?php echo BASE_PATH; ?>/articles">Tutti gli Articoli</a>
+                                        <?php foreach($allFormats as $format): ?>
+                                        <a class="dropdown-item" title="Articoli su <?php echo $format->name_frmt; ?> Magic the Gathering" href="<?php echo BASE_PATH; ?>/articles-by-format/<?php echo $format->name_frmt; ?>/<?php echo $format->id_frmt; ?>"><?php echo $format->name_frmt; ?></a>
+                                        <?php endforeach; ?>
+                                    </div>
+                            </li> -->
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" title="Eventi Magic the Gathering organizzati da IGMDM" href="<?php echo BASE_PATH; ?>/events">Eventi</a>
+                            </li> -->
+                            <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" rel="nofollow" title="Scrivi nuovo articolo" href="<?php echo BASE_PATH; ?>/new-article">Nuovo Articolo</a>
+                                </li>
+                                <li class="nav-item">
+                                        <a class="nav-link" rel="nofollow" title="Crea nuovo evento" href="<?php echo BASE_PATH; ?>/new-deck">Nuovo Decklist</a>
+                                </li>
+                                <?php if(isset($_SESSION['super_user']) && $_SESSION['super_user'] === '1' ) : ?>
+                                    <li class="nav-item">
+                                        <a class="nav-link" rel="nofollow" title="Crea nuovo evento" href="<?php echo BASE_PATH; ?>/new-event">Nuovo Evento</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" rel="nofollow" title="Crea nuovo utente" href="<?php echo BASE_PATH; ?>/create-new-users">Nuovo utente</a>
+                                    </li>
+                                <?php endif; ?>
+                                <li class="nav-item">
+                                        <a class="nav-link" rel="nofollow" title="Modifica Profilo" href="<?php echo BASE_PATH; ?>/profile">Profilo</a>
+                                    </li>
+                            <?php endif; ?>
+                        </ul>
+                    </div>
+                <!-- <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form> -->
+                </nav>
             </div>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </nav>
+            <div class="flex-row pb-2">
+                <div class="pl-3">
+                    <span class="nav-item font-weight-bold  ">Articoli:</span>
+                    <a class="badge badge-primary text-wrap pl-3" title="Articoli su Magic the Gathering (Online, Arena e Tornei )" href="<?php echo BASE_PATH; ?>/articles">Tutti</a> 
+                    <?php foreach($allFormats as $format): ?>
+                        - <a class="badge badge-primary text-wrap" title="Articoli su <?php echo $format->name_frmt; ?> Magic the Gathering" href="<?php echo BASE_PATH; ?>/articles-by-format/<?php echo $format->name_frmt; ?>/<?php echo $format->id_frmt; ?>"><?php echo $format->name_frmt; ?></a>
+                        <?php endforeach; ?>
+                </div>
+            </div>
+            <div class="flex-row d-inline-block pb-2">
+                <div class="pl-3">
+                    <span class="nav-item font-weight-bold  ">Decklists:</span>
+                    <a class="badge badge-primary text-wrap" title="Articoli su Magic the Gathering (Online, Arena e Tornei )" href="<?php echo BASE_PATH; ?>/decklists">Tutti</a> 
+                    <?php foreach($allFormats as $format): ?>
+                        <?php if($format->id_frmt != 6 && $format->id_frmt != 8 ): ?>
+                            - <a class="badge badge-primary text-wrap" title="Articoli su <?php echo $format->name_frmt; ?> Magic the Gathering" href="<?php echo BASE_PATH; ?>/decklists-by-format/<?php echo $format->name_frmt; ?>/<?php echo $format->id_frmt; ?>"><?php echo $format->name_frmt; ?></a>
+                        <?php endif; ?>
+                        <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="col">
                 <div class="clearfix">
